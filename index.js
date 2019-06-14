@@ -21,6 +21,15 @@ app.get("/api/schools", (req, res) => {
     });
 });
 
+app.get("/api/schools:/high", (req, res) => {
+    pool.query("SELECT * FROM high_school", (error, rows) => {
+        if (error){
+            return res.status(500).json({ error });
+        }
+
+        res.json(rows);
+    });
+});
 
 
 
