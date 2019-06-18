@@ -13,7 +13,7 @@ const pool = mysql.createPool(
 
 app.get("/api/schools", (req, res) => {
     pool.query("SELECT reg_number, namme FROM student", (error, rows) => {
-        if (error){
+        if (error) {
             return res.status(500).json({ error });
         }
 
@@ -21,15 +21,15 @@ app.get("/api/schools", (req, res) => {
     });
 });
 
-app.get("/api/schools:/high", (req, res) => {
-    pool.query("SELECT * FROM high_school", 
-    (error, rows) => {
-        if (error){
-            return res.status(500).json({ error });
-        }
+app.get("/api/schools/:high", (req, res) => {
+    pool.query("SELECT * FROM high_school",
+        (error, rows) => {
+            if (error) {
+                return res.status(500).json({ error });
+            }
 
-        res.json(rows);
-    });
+            res.json(rows);
+        });
 });
 
 
