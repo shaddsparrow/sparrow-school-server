@@ -11,7 +11,10 @@ const pool = mysql.createPool(
     }
 );
 
-app.get("/api/schools", (req, res) => {
+app.use(express.json());
+app.use(express.urlencoded({ extended: false}));
+
+app.get("/api/student", (req, res) => {
     pool.query("SELECT reg_number, namme FROM student", (error, rows) => {
         if (error) {
             return res.status(500).json({ error });
@@ -32,7 +35,28 @@ app.get("/api/schools/:high", (req, res) => {
         });
 });
 
+app.post("/api/parent", (req, res) => {
+    
+    const {namme} = req.body;
+    console.log(namme);
 
+    //insert reg_number 
+    
+    if (!namme){
+        return res.status(400).json({ error: "Invalid payload"});
+    }
+     pool.query(
+         "INSERT INTO student (namme) VALUES (?)",
+         [namme],
+         (error, results) => {
+             if (error) {
+                 return res.status(500).json({ error });
+             }
+             res.json(result.insertId);
+         }
+     );
+
+});
 
 
 
