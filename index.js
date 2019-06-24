@@ -96,8 +96,71 @@ app.post("/api/parent", (req, res) => {
 
 });
 
+app.put("/api/parent", (req, res) => {
+    const {reg_number,namme,school_id} = req.body;
+if (
+    !reg_number || !namme || !school_id
+)
+{
+    return res.status(400).json({ error: "Invalid payload" });
+}
+
+pool.getConnection((error, connection) => {
+    if (error) {
+        return res.status(500).json({ error });
+    }
+    connection.beginTransaction(error => {
+        if (error) {
+            return res.status(500).json({ error });
+        }
 
 
+
+
+        connection.query(
+            "UPDATE student SET reg_number = ?, namme = ?, school_id = ?",
+            [reg_number,namme,school_id],
+            (error, results) => {
+                if (error) {
+                    return connection.rollback(() => {
+                        res.status(500).json({ error });
+                    });
+                }
+                const changedRows = results.changedRows;
+     
+
+     connection.commit(error => {
+        if (error) {
+            return connection.rollback(() => {
+                res.status(500).json({ error });
+            });
+        }
+        connection.release();
+        res.json(changedRows);
+    });
+}
+);
+}
+);
+}
+);
+});
+
+
+
+app.delete("/api/parent/:id", (req, res) => {
+    pool.query(
+        "DELETE FROM student WHERE id = ?",
+        [req.params.id],
+        (error, results) => {
+            if (error) {
+                return res.status(500).json({ error });
+            }
+
+            res.json(results.affectedRows);
+        }
+        );
+    });
 
 
 app.listen(8080, function () {
