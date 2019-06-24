@@ -15,6 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 
 app.get("/api/student", (req, res) => {
+
     pool.query("SELECT reg_number, namme FROM student", (error, rows) => {
         if (error) {
             return res.status(500).json({ error });
@@ -37,26 +38,65 @@ app.get("/api/schools/:high", (req, res) => {
 
 app.post("/api/parent", (req, res) => {
     
-    const {namme} = req.body;
-    console.log(namme);
+    const {reg_number, namme, reg_id, form, namee} = req.body;
+    
 
+    
     //insert reg_number 
     
-    if (!namme){
+    if (!reg_number || !namme || !reg_id || !form || !namee){
         return res.status(400).json({ error: "Invalid payload"});
     }
-     pool.query(
-         "INSERT INTO student (namme) VALUES (?)",
-         [namme],
-         (error, results) => {
-             if (error) {
-                 return res.status(500).json({ error });
+    pool.getConnection((error, connection) => {
+        if (error) {
+            return res.status(500).json({ error });
+        }
+        connection.beginTransaction(error => {
+            if (error) {
+                return res.status(500).json({ error });
+            }
+            connection.query(
+                "INSERT INTO high_school (namee, form, reg_id) VALUES (?,?,?)",
+                [namee,form,reg_id],
+                (error, results) => {
+                    if (error) {
+                        return connection.rollback(() => {
+                            res.status(500).json({ error });
+                        });         
+                }
+
+                const insertId = results.insertId;
+
+                connection.query(
+                    "INSERT INTO student (reg_number, namme,school_id) VALUES (?,?,?)   ",
+                    [reg_number,namme,insertId],
+                    (error, results) => {
+                        if (error) {
+                            return connection.rollback(() => {
+                                res.status(500).json({ error });
+                            });         
+                    }
+
+                connection.commit(error => {
+                    if (error) {  
+                        return connection.rollback(() => {
+                            res.status(500).json({ error });
+                        });
+                    }
+
+                    connection.release();
+                    res.json(insertId);
+                });
              }
-             res.json(result.insertId);
-         }
-     );
+            );
+        }
+        );
+    });
+});
 
 });
+
+
 
 
 
