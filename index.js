@@ -96,7 +96,7 @@ app.post("/api/parent", (req, res) => {
 
 });
 
-app.put("/api/parent", (req, res) => {
+app.put("/api/parent/:id", (req, res) => {
     const {reg_number,namme,school_id} = req.body;
 if (
     !reg_number || !namme || !school_id
@@ -118,8 +118,8 @@ pool.getConnection((error, connection) => {
 
 
         connection.query(
-            "UPDATE student SET reg_number = ?, namme = ?, school_id = ?",
-            [reg_number,namme,school_id],
+            "UPDATE student SET reg_number = ?, namme = ?, school_id = ? WHERE id = ?",
+            [reg_number,namme,school_id, req.params.id],
             (error, results) => {
                 if (error) {
                     return connection.rollback(() => {
