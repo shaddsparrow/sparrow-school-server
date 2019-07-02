@@ -1,29 +1,60 @@
-.ss-header {
+.ss-header{
+ display: flex;
+}
+
+
+.ss-container{
+ flex-direction: row;
+ display: grid;
+ font-size: 17px;
+}
+
+
+.ss-navb {
   margin: 0 auto;
   position: relative;
-  z-index: 100;
+  z-index: 200;
   background: white;
-  text-decoration-color: black;
-  font-weight: 700;
-  font-style: initial; 
+  font-weight: 900;
+  font-style: revert; 
   display: flex;
   flex-direction: row;
 }
 
+@media (min-width: 720px){
+  .ss-container{
+    padding-left: 15px;
+    padding-right: 15px; 
+  }
+}
+
+
 .ss-header .ss-title {
   width: 25vw;
+  text-decoration-color: black;
+  font-family: algerian;
+  font-size: x-large;
 }
 
 .ss-header .ss-banner-text {
-  width: 75vw;
+  width: 85vw;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration-color: rgb(120, 176, 240);
+  
 }
 
 .ss-2header {
-  position: fixed;
-  max-width: 960;
-  margin: auto;
-  padding: 6px;
-  background: blue;
-  align-items: center;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: auto;
+  background:white;
+  display: flex;
+  padding: 42px;
 }
-
+.ss-2header a {
+  font-size: 0.975rem;
+  margin-right: 20px;
+  color: black;
+  text-decoration: none;
+  text-decoration-color: aquamarine
+}

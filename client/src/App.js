@@ -5,19 +5,19 @@ import "./App.css";
 function App() {
   return (
     <div className="ss-app">
-      
+
       <header className="ss-header">
-         <NavBar />
-         </header>
+        <NavBar />
+      </header>
 
-         <header className="ss-2header">
+      <main className="">
 
-         </header>
+      </main>
 
-    <main>
+      <main>
 
 
-    </main>
+      </main>
 
     </div>
   );
