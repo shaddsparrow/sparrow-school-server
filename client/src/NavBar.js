@@ -3,12 +3,14 @@ import React from "react";
 function NavBar() {
     return (
         <div className="ss-container">
-            <nav className="ss-header">
+            <nav className="ss-navb">
                 <span className="ss-title">
                     SPARROWSCHOOLS
                 </span>
 
-                <span className="ss-banner-text">An investment in knowledge pays the best.</span>
+                <span className="ss-banner-text">
+                    An investment in knowledge pays the best.
+                    </span>
             </nav>
 
             <nav className="ss-2header">
