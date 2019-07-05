@@ -1,5 +1,6 @@
 import React from "react";
 import NavBar from "./NavBar";
+import highschool from "./highschool";
 import "./App.css";
 
 function App() {
