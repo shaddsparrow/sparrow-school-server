@@ -13,12 +13,13 @@
 .ss-navb {
   margin: 0 auto;
   position: relative;
-  z-index: 200;
-  background: white;
+  z-index: inherit;
+  background: bisque;
   font-weight: 900;
   font-style: revert; 
   display: flex;
   flex-direction: row;
+  align-items: baseline;
 }
 
 @media (min-width: 720px){
