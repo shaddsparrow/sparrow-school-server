@@ -59,3 +59,11 @@
   text-decoration: none;
   text-decoration-color: aquamarine
 }
+.ss-body {
+  border-style: double;
+  border-width: thin;
+  display: flex;
+  flex-direction: row;
+  background: lightblue;
+  margin: 0 90px;
+}
