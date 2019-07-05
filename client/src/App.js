@@ -29,7 +29,7 @@ const parent = [
     "reg_id": "scee0987"
   }
 ]
-  
+
 
 
 
