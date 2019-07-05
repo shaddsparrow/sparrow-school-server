@@ -1,9 +1,19 @@
 import React from "react";
 
-function highschools({highschooldisplay}){
-    const {id, namee, form, reg_id } = highschooldisplay;
 
-    
+function Highschool ({highschooldisplay}){
+const { namee, form, reg_id} = highschooldisplay;
+
+return(
+    <div>
+        <h2>{namee}</h2>
+        <p>{form}</p>
+        <p>{reg_id}</p>
+    </div>
+);
+
+
+
 }
 
-export default highschools;
+export default Highschool;
