@@ -7,6 +7,7 @@
  flex-direction: row;
  display: grid;
  font-size: 17px;
+ background: cornflowerblue;
 }
 
 
@@ -46,12 +47,21 @@
 
 .ss-2header {
   max-width: 960px;
-margin: 0 auto;
+margin: 96px;
 display: flex;
-padding: 32px;
+padding: 12px;
 font-family: initial;
 text-transform: uppercase;
+background: lightyellow;
+grid-column: span 1;
+transition: 0.2s ease-in-out;
+letter-spacing: 2px;
+color: #fff;
+text-shadow: 0 1px 1px rgba(0,0,0,0.4);
+border-radius: 50px;
+justify-content: center;
 }
+
 .ss-2header a {
   font-size: 0.975rem;
   margin-right: 20px;
