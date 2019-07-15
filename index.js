@@ -12,7 +12,7 @@ const pool = mysql.createPool(
 );
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: false}));
+app.use(express.urlencoded({ extended: false }));
 
 app.get("/api/student", (req, res) => {
 
@@ -37,15 +37,15 @@ app.get("/api/schools/:high", (req, res) => {
 });
 
 app.post("/api/parent", (req, res) => {
-    
-    const {reg_number, namme, reg_id, form, namee} = req.body;
-    
 
-    
+    const { reg_number, namme, reg_id, form, namee } = req.body;
+
+
+
     //insert reg_number 
-    
-    if (!reg_number || !namme || !reg_id || !form || !namee){
-        return res.status(400).json({ error: "Invalid payload"});
+
+    if (!reg_number || !namme || !reg_id || !form || !namee) {
+        return res.status(400).json({ error: "Invalid payload" });
     }
     pool.getConnection((error, connection) => {
         if (error) {
@@ -57,93 +57,92 @@ app.post("/api/parent", (req, res) => {
             }
             connection.query(
                 "INSERT INTO high_school (namee, form, reg_id) VALUES (?,?,?)",
-                [namee,form,reg_id],
+                [namee, form, reg_id],
                 (error, results) => {
                     if (error) {
-                        return connection.rollback(() => {
-                            res.status(500).json({ error });
-                        });         
-                }
-
-                const insertId = results.insertId;
-
-                connection.query(
-                    "INSERT INTO student (reg_number, namme,school_id) VALUES (?,?,?)   ",
-                    [reg_number,namme,insertId],
-                    (error, results) => {
-                        if (error) {
-                            return connection.rollback(() => {
-                                res.status(500).json({ error });
-                            });         
-                    }
-
-                connection.commit(error => {
-                    if (error) {  
                         return connection.rollback(() => {
                             res.status(500).json({ error });
                         });
                     }
 
-                    connection.release();
-                    res.json(insertId);
-                });
-             }
+                    const insertId = results.insertId;
+
+                    connection.query(
+                        "INSERT INTO student (reg_number, namme,school_id) VALUES (?,?,?)   ",
+                        [reg_number, namme, insertId],
+                        (error, results) => {
+                            if (error) {
+                                return connection.rollback(() => {
+                                    res.status(500).json({ error });
+                                });
+                            }
+
+                            connection.commit(error => {
+                                if (error) {
+                                    return connection.rollback(() => {
+                                        res.status(500).json({ error });
+                                    });
+                                }
+
+                                connection.release();
+                                res.json(insertId);
+                            });
+                        }
+                    );
+                }
             );
-        }
-        );
+        });
     });
-});
 
 });
 
 app.put("/api/parent/:id", (req, res) => {
-    const {reg_number,namme,school_id} = req.body;
-if (
-    !reg_number || !namme || !school_id
-)
-{
-    return res.status(400).json({ error: "Invalid payload" });
-}
-
-pool.getConnection((error, connection) => {
-    if (error) {
-        return res.status(500).json({ error });
+    const { reg_number, namme, school_id } = req.body;
+    if (
+        !reg_number || !namme || !school_id
+    ) {
+        return res.status(400).json({ error: "Invalid payload" });
     }
-    connection.beginTransaction(error => {
+
+    pool.getConnection((error, connection) => {
         if (error) {
             return res.status(500).json({ error });
         }
+        connection.beginTransaction(error => {
+            if (error) {
+                return res.status(500).json({ error });
+            }
 
 
 
 
-        connection.query(
-            "UPDATE student SET reg_number = ?, namme = ?, school_id = ? WHERE id = ?",
-            [reg_number,namme,school_id, req.params.id],
-            (error, results) => {
-                if (error) {
-                    return connection.rollback(() => {
-                        res.status(500).json({ error });
+            connection.query(
+                "UPDATE student SET reg_number = ?, namme = ?, school_id = ? WHERE id = ?",
+                [reg_number, namme, school_id, req.params.id],
+                (error, results) => {
+                    if (error) {
+                        return connection.rollback(() => {
+                            res.status(500).json({ error });
+                        });
+                    }
+                    const changedRows = results.changedRows;
+
+
+                    connection.commit(error => {
+                        if (error) {
+                            return connection.rollback(() => {
+                                res.status(500).json({ error });
+                            });
+                        }
+                        connection.release();
+                        res.json(changedRows);
                     });
                 }
-                const changedRows = results.changedRows;
-     
-
-     connection.commit(error => {
-        if (error) {
-            return connection.rollback(() => {
-                res.status(500).json({ error });
-            });
+            );
         }
-        connection.release();
-        res.json(changedRows);
-    });
-}
-);
-}
-);
-}
-);
+        );
+    }
+    );
 });
 
 
@@ -159,8 +158,8 @@ app.delete("/api/parent/:id", (req, res) => {
 
             res.json(results.affectedRows);
         }
-        );
-    });
+    );
+});
 
 
 app.listen(8080, function () {
