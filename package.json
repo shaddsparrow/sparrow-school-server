@@ -3,12 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts":
-   {
+  "scripts": {
     "start": "node index.js",
     "server": "nodemon index.js",
     "client": "cd client && npm start",
-    "dev": "concurrently \"npm run server\" \"npm run client\"" 
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Shadrack Rono <shadrackronoh67@gmail.com>",
   "license": "ISC",
