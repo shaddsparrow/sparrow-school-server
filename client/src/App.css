@@ -7,7 +7,6 @@
  flex-direction: row;
  display: grid;
  font-size: 17px;
- background: cornflowerblue;
 }
 
 
@@ -77,4 +76,8 @@ justify-content: center;
   background: lightblue;
   margin: 0 90px;
   justify-content: space-evenly;
+}
+
+.ss-2header a:hover{
+  background: tomato;
 }
