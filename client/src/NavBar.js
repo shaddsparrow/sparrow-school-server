@@ -16,9 +16,9 @@ function NavBar() {
             <nav className="ss-2header">
 
                 <span>
-                    <a href="/parent">parent</a>
+                    <a href="/">parent</a>
                     <a href="/school">school</a>
-                    <a href="/student">student</a>
+                    <a href="/student">Admin</a>
                 </span>
 
             </nav>

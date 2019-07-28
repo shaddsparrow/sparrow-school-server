@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
 import Highschool from "./Highschool";
+import Loading from "./Loading";
+import Error from "./Error";
 
 class Highschoollistings extends React.Component {
 
@@ -40,7 +42,18 @@ class Highschoollistings extends React.Component {
     }
 
     render() {
-        const {highschooldisplay} = this.state
+        const { highschooldisplay, loading, error } = this.state;
+        if (loading) {
+            return <Loading />;
+        }
+        if (error) {
+            return <Error />;
+        }
+
+
+
+
+
 
         return (
             <div className="ss-container" >

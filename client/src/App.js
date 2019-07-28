@@ -1,7 +1,10 @@
 import React from "react";
+import { Router } from "@reach/router";
 import NavBar from "./NavBar";
 import Highschoollistings from "./Highschoollistings";
+import Admin from "./Admin";
 import "./App.css";
+import StudentDetails from "./StudentDetails";
 
 // const parent = [
 //   {
@@ -47,8 +50,15 @@ function App() {
       </header>
 
       <main className="ss-main">
-        <Highschoollistings  />
+        {/* <Highschoollistings  /> */}
+        <Router>
+            <Highschoollistings path="/" />
+            <StudentDetails path="/school/:studentId" />
+            <Admin path="/admin" />
 
+
+
+        </Router>
 
       </main>
 
