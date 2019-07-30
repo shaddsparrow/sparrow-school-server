@@ -7,40 +7,6 @@ import Admin from "./Admin";
 import "./App.css";
 
 
-// const parent = [
-//   {
-//     "id": 1,
-//     "namee": "Alliance",
-//     "form": "two west",
-//     "reg_id": "scce0897"
-//   },
-//   {
-//     "id": 2,
-//     "namee": "Starehe",
-//     "form": "two north",
-//     "reg_id": "scce9854"
-//   },
-//   {
-//     "id": 4,
-//     "namee": "chavakali",
-//     "form": "three west",
-//     "reg_id": "scee0987"
-//   },
-//   {
-//     "id": 5,
-//     "namee": "chavakali",
-//     "form": "three west",
-//     "reg_id": "scee0987"
-//   }
-// ]
-
-
-
-
-
-
-
-
 function App() {
   return (
     <div className="ss-app">
@@ -51,7 +17,6 @@ function App() {
       </header>
 
       <main className="ss-main">
-        {/* <Highschoollistings  /> */}
         <Router>
             <Highschoollistings path="/" />
             <StudentDetails path="/school" />
