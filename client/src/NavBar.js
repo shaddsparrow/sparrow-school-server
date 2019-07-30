@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "@reach/router";
 
 function NavBar() {
     return (
@@ -16,9 +17,9 @@ function NavBar() {
             <nav className="ss-2header">
 
                 <span>
-                    <a href="/">parent</a>
-                    <a href="/school">school</a>
-                    <a href="/student">Admin</a>
+                    <Link to="/">parent</Link>
+                    <Link to="/school">school</Link>
+                    <Link to="/student">Admin</Link>
                 </span>
 
             </nav>
