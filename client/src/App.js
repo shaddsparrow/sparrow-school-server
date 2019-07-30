@@ -2,9 +2,10 @@ import React from "react";
 import { Router } from "@reach/router";
 import NavBar from "./NavBar";
 import Highschoollistings from "./Highschoollistings";
+import StudentDetails from "./StudentDetails";
 import Admin from "./Admin";
 import "./App.css";
-import StudentDetails from "./StudentDetails";
+
 
 // const parent = [
 //   {
@@ -53,7 +54,7 @@ function App() {
         {/* <Highschoollistings  /> */}
         <Router>
             <Highschoollistings path="/" />
-            <StudentDetails path="/school/:studentId" />
+            <StudentDetails path="/school" />
             <Admin path="/admin" />
 
 
