@@ -27,6 +27,12 @@ function SchoolForm(){
                   type="text"
                   name="namme"
         />
+        </div>
+        <label htmlFor="namee">namee</label>
+        <div className="form-input"><input
+                  type="text"
+                  name="namee"
+        />
              </div>
              <button
                 className="form-submit"

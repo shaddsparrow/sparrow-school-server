@@ -106,3 +106,36 @@ font-weight: bold;
                font-size: 1.875rem;
            }
        }
+       .ss-schoolform-row{
+        text-align: center;
+        
+      }
+      .ss-schooltable{
+        display: block;
+        overflow-x: auto;
+        width: 70%;
+        margin-top: 1rem;
+      }
+      .ss-schooltable table{
+        flex-direction:column;
+       align-items: center;
+      border-collapse: collapse;
+       width: 70%;
+       margin-top: 2rem;
+       margin-bottom: 1rem;
+       white-space: nowrap;
+     }
+
+      .ss-schooltable table th
+      .ss-schooltable table td{
+        border-top: 1px solid #999;
+        padding: 0.75rem;
+      }
+      .ss-schooltable table thead th{
+        border-bottom: 2px solid #999;
+        text-align: left;
+        background-color: rgba(0, 0, 0, 0.075);
+      }
+      .ss-schooltable table tbody td:hover{
+        background-color: wheat;
+      }

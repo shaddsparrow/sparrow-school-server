@@ -3,7 +3,8 @@ import React from "react";
 
 function SchoolTable(){
     return(
-        <table>
+        <div className="ss-schooltable">
+            <table>
             <thead>
                 <tr>
                     <th>reg_id</th>
@@ -14,11 +15,25 @@ function SchoolTable(){
                 </tr>
             </thead>
             <tbody>
-                <tb>scce08948</tb>
-            
+                <td>scce08948</td>
+                 <td>two west</td>
+                 <td>scce08948</td>
+                 <td>masai man</td>
+                 <td>Aliance</td>
             </tbody>
+            <body>
+                <td>
+                    <span>edit</span> 
+                    
+                    &nbsp;&nbsp;|&nbsp;&nbsp;
+                    
+                    <span>delete</span>
+                    </td>
+            </body>
             
         </table>
+
+        </div>
         
         
     )
