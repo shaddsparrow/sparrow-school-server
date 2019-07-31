@@ -19,7 +19,7 @@ function NavBar() {
                 <span>
                     <Link to="/">parent</Link>
                     <Link to="/school">school</Link>
-                    <Link to="/student">Admin</Link>
+                    <Link to="/admin">Admin</Link>
                 </span>
 
             </nav>

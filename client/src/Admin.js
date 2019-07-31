@@ -1,9 +1,10 @@
 import React from "react";
+import SchoolAdmin from "./SchoolAdmin";
 
 function Admin() {
     return (
         <div>
-            <h1>Admin Page</h1>
+            <SchoolAdmin/>
         </div>
     );
 }

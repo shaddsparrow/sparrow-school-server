@@ -31,7 +31,7 @@
 
 
 .ss-header .ss-title {
-  width: 25vw;
+  width: 35vw;
   text-decoration-color: black;
   font-family: algerian;
   font-size: x-large;
@@ -39,9 +39,12 @@
 
 .ss-header .ss-banner-text {
   width: 85vw;
-  font-family: Arial, Helvetica, sans-serif;
-  text-decoration-color: rgb(120, 176, 240);
-  
+  font-family: Georgia, Times, serif;
+ text-decoration-color: rgb(120, 176, 240);
+ font-size: x-large;
+ font-style: italic;
+  color: purple;
+ background-color: #d8da3d;
 }
 
 .ss-2header {
@@ -59,6 +62,7 @@ color: #fff;
 text-shadow: 0 1px 1px rgba(0,0,0,0.4);
 border-radius: 50px;
 justify-content: center;
+font-weight: bold;
 }
 
 .ss-2header a {
