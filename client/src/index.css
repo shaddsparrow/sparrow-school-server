@@ -12,5 +12,6 @@ code {
     monospace;
 }
 body {
-  background-color: blueviolet;
+  background:url("./parrot-abstract.jpg");
+  background-repeat: no-repeat;
 }

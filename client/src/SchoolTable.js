@@ -12,6 +12,7 @@ function SchoolTable(){
                     <th>reg_number</th>
                     <th>namme</th>
                     <th>namee</th>
+                    <th>action</th>
                 </tr>
             </thead>
             <tbody>
@@ -20,16 +21,17 @@ function SchoolTable(){
                  <td>scce08948</td>
                  <td>masai man</td>
                  <td>Aliance</td>
-            </tbody>
-            <body>
-                <td>
-                    <span>edit</span> 
+                 <td>
+                 <span className="ss-link"
+                  >edit</span> 
                     
                     &nbsp;&nbsp;|&nbsp;&nbsp;
                     
-                    <span>delete</span>
-                    </td>
-            </body>
+                    <span className="ss-link"
+                    >delete</span>
+                 </td>
+            </tbody>
+            
             
         </table>
 
