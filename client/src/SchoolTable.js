@@ -12,7 +12,7 @@ function SchoolTable(){
                     <th>reg_number</th>
                     <th>namme</th>
                     <th>namee</th>
-                    <th>action</th>
+                    <th>ACTION</th>
                 </tr>
             </thead>
             <tbody>
