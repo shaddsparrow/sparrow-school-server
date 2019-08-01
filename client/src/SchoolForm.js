@@ -7,7 +7,7 @@ function SchoolForm(){
         <label htmlFor="Reg_id">Reg_id</label><br></br>
         <div className="form-input"><input
                   type="text"
-                  name="Reg_id"
+                  name="regId"
         />
              </div>
         <label htmlFor="Form">form</label><br></br>
@@ -19,7 +19,7 @@ function SchoolForm(){
         <label htmlFor="reg_number">reg_number</label><br></br>
         <div className="form-input"><input
                   type="text"
-                  name="reg_number"
+                  name="regNumber"
         />
              </div>
         <label htmlFor="namme">namme</label>
