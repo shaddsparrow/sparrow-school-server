@@ -47,6 +47,15 @@
  background-color: #d8da3d;
 }
 
+.ss-image{
+  margin-left: 530px;
+  color: #fff;
+}
+.ss-image #light{
+  font-family: algerian;
+}
+
+
 .ss-2header {
   max-width: 960px;
 margin: 96px;

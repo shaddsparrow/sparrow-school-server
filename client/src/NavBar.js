@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from "@reach/router";
+import sparrow from "./sparrow.jpg"
 
 function NavBar() {
     return (
@@ -13,6 +14,14 @@ function NavBar() {
                     An investment in knowledge pays the best.
                     </span>
             </nav>
+            
+           <div className="ss-image">
+           <span id="light">sparrow</span>
+           <img src={sparrow} alt="sparrow" width="100" height="100" border="0"/>
+           <span id="light">school</span>
+           </div>
+            
+
 
             <nav className="ss-2header">
 
