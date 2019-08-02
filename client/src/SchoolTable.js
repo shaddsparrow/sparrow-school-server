@@ -1,35 +1,46 @@
 import React from "react";
 
 
-function SchoolTable(){
+function SchoolTable({
+    school, tableloading, tableError
+}){
+   
     return(
         <div className="ss-schooltable">
             <table>
             <thead>
                 <tr>
+                    <th>reg_number</th>
                     <th>reg_id</th>
                     <th>form</th>
-                    <th>reg_number</th>
                     <th>namme</th>
                     <th>namee</th>
                     <th>ACTION</th>
                 </tr>
             </thead>
+
             <tbody>
-                <td>scce08948</td>
-                 <td>two west</td>
-                 <td>scce08948</td>
-                 <td>masai man</td>
-                 <td>Aliance</td>
-                 <td>
-                 <span className="ss-link"
-                  >edit</span> 
-                    
-                    &nbsp;&nbsp;|&nbsp;&nbsp;
-                    
-                    <span className="ss-link"
-                    >delete</span>
-                 </td>
+            {school.map((schoolinfo, index)=>{
+                 const{reg_number,namme,reg_id,form,namee}=schoolinfo;
+                 return(
+                   <tr key ={reg_number}>
+                         <td>{reg_number}</td>
+                         <td>{reg_id}</td>
+                         <td>{form}</td>
+                         <td>{namme}</td>
+                         <td>{namee}</td>
+                         <td>
+                             <span>edit</span>
+
+                             &nbsp;&nbsp; | &nbsp;&nbsp;
+
+                             <span>delete</span>
+                         </td>
+                         
+                   </tr>
+                 )
+             })}
+
             </tbody>
             
             

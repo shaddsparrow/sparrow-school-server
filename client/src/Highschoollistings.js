@@ -23,7 +23,7 @@ class Highschoollistings extends React.Component {
 
     fetchparentdisplay() {
         this.setState({ loading: true, error: false })
-        axios.get("/api/schools/:high")
+        axios.get("/api/schools")
             .then(response => {
                 this.setState({
                     highschooldisplay: response.data,

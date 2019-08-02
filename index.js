@@ -25,7 +25,7 @@ app.get("/api/student", (req, res) => {
     });
 });
 
-app.get("/api/schools/:high", (req, res) => {
+app.get("/api/schools", (req, res) => {
     pool.query("SELECT * FROM high_school",
         (error, rows) => {
             if (error) {
@@ -35,6 +35,16 @@ app.get("/api/schools/:high", (req, res) => {
             res.json(rows);
         });
 });
+
+app.get("/api/schoolinfomation", (req, res) => {
+    pool.query(`select st.reg_number, st.namme, hs.reg_id, hs.form, hs.namee from high_school hs JOIN student st ON st.reg_number=hs.reg_id`,
+    (error, rows) => {
+        if (error) {
+            return res.status(500).json({ error });
+        }
+        res.json(rows);
+    })
+})
 
 app.post("/api/parent", (req, res) => {
 
