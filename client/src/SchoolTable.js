@@ -2,7 +2,7 @@ import React from "react";
 
 
 function SchoolTable({
-    school, tableloading, tableError
+    school, tableloading, tableError, editschools
 }){
    
     return(
@@ -30,11 +30,11 @@ function SchoolTable({
                          <td>{namme}</td>
                          <td>{namee}</td>
                          <td>
-                             <span>edit</span>
+                             <span id = "edit" onClick = {editschools(schoolinfo)}>edit</span>
 
                              &nbsp;&nbsp; | &nbsp;&nbsp;
 
-                             <span>delete</span>
+                             <span id = "delete">delete</span>
                          </td>
                          
                    </tr>

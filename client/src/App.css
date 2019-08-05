@@ -120,11 +120,23 @@ font-weight: bold;
         color: aqua;
         text-transform: uppercase;
     }
+
+    .ss-link{
+      color: #1a0dab;
+      cursor: pointer;
+      text-decoration: underline;
+    }
       .ss-schooltable{
         display: block;
         overflow-x: auto;
         width: 70%;
         margin-top: 1rem;
+      }
+
+      .ss-schooltable span{
+        color: #1a0dab;
+      cursor: pointer;
+      text-decoration: underline;
       }
       .ss-schooltable table{
         background: aliceblue;
@@ -153,8 +165,4 @@ font-weight: bold;
       .ss-schooltable table tbody td:hover{
         background-color: wheat;
       }
-      .ss-link{
-        color: #1a0dab;
-        cursor: pointer;
-        text-decoration: underline;
-      }
+      
